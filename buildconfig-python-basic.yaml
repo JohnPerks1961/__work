@@ -1,0 +1,100 @@
+﻿kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    app.openshift.io/vcs-ref: ''
+    app.openshift.io/vcs-uri: 'https://github.com/devfile-samples/devfile-sample-python-basic.git'
+    openshift.io/generated-by: OpenShiftWebConsole
+  resourceVersion: '98537'
+  name: python-basic
+  uid: 802d3bdc-c66a-4a15-abf6-edd3f533e10c
+  creationTimestamp: '2023-06-16T15:37:57Z'
+  generation: 3
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-06-16T15:37:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:app.openshift.io/vcs-ref': {}
+            'f:app.openshift.io/vcs-uri': {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/part-of': {}
+            'f:app.openshift.io/runtime': {}
+        'f:spec':
+          'f:output':
+            'f:to': {}
+          'f:runPolicy': {}
+          'f:source':
+            'f:contextDir': {}
+            'f:git':
+              .: {}
+              'f:uri': {}
+            'f:sourceSecret': {}
+            'f:type': {}
+          'f:strategy':
+            'f:dockerStrategy':
+              .: {}
+              'f:dockerfilePath': {}
+            'f:type': {}
+          'f:triggers': {}
+    - manager: openshift-apiserver
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2023-06-16T20:00:27Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:lastVersion': {}
+  namespace: jlpproject1
+  labels:
+    app: python-basic
+    app.kubernetes.io/component: python-basic
+    app.kubernetes.io/instance: python-basic
+    app.kubernetes.io/name: python-basic
+    app.kubernetes.io/part-of: sample-app
+    app.openshift.io/runtime: python-basic
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'python-basic:latest'
+  resources: {}
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerfilePath: docker/Dockerfile
+  postCommit: {}
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/devfile-samples/devfile-sample-python-basic.git'
+    contextDir: /
+    sourceSecret:
+      name: jlpgitpat
+  triggers:
+    - type: Generic
+      generic:
+        secretReference:
+          name: python-basic-generic-webhook-secret
+    - type: GitHub
+      github:
+        secretReference:
+          name: python-basic-github-webhook-secret
+    - type: ConfigChange
+  runPolicy: Serial
+status:
+  lastVersion: 2
