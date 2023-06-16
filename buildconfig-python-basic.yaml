@@ -40,7 +40,6 @@ metadata:
             'f:git':
               .: {}
               'f:uri': {}
-            'f:sourceSecret': {}
             'f:type': {}
           'f:strategy':
             'f:dockerStrategy':
@@ -82,9 +81,6 @@ spec:
     type: Git
     git:
       uri: 'https://github.com/devfile-samples/devfile-sample-python-basic.git'
-    contextDir: /
-    sourceSecret:
-      name: jlpgitpat
   triggers:
     - type: Generic
       generic:

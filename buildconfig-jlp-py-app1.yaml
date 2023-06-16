@@ -30,7 +30,6 @@ metadata:
             'f:app.kubernetes.io/instance': {}
             'f:app.kubernetes.io/name': {}
             'f:app.kubernetes.io/part-of': {}
-            'f:app.openshift.io/runtime': {}
         'f:spec':
           'f:output':
             'f:to': {}
@@ -63,7 +62,6 @@ metadata:
     app.kubernetes.io/instance: jlp-py-app1
     app.kubernetes.io/name: jlp-py-app1
     app.kubernetes.io/part-of: jlp-py-app1
-    app.openshift.io/runtime: python-basic
 spec:
   nodeSelector: null
   output:
